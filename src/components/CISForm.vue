@@ -202,6 +202,7 @@ export default {
     methods: {
 
         getBrands() {
+            this.brandValue = []
 
             let url = 'https://apps.yug-avto.ru/API/get/cis/brands/used/?token='+this.$root.token
             if ( this.$root.link == 'comm' ) url += '&dealership='+this.$root.dealership
