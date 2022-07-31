@@ -1,110 +1,112 @@
 <template>
-    <div>
-        <div class="row">
-            <div class="col">
-                <form class="bg-yayellow b-radius-small p-3 p-md-5 m-0">
-                    <div class="row mb-3">
-                        <div class="col-6"><h3 class="fw-normal">Найти автомобиль</h3></div>
-                        <div class="col-6 text-end">
-                            <ul class="list-inline text-minus pt-2">
-                                <li class="list-inline-item ms-3">
-                                    <a 
-                                        href="#" 
-                                        class="text-uppercase c-yablack c-h-yablue text-decoration-none letter-spacing-plus fw-bold"
-                                        :class="{'c-yablue': link =='new' }"
-                                        @click.prevent="setLink('new')"
-                                        >Новые</a>
-                                </li>
-                                <li class="list-inline-item ms-3">
-                                    <a 
-                                        href="#" 
-                                        class="text-uppercase c-yablack c-h-yablue text-decoration-none letter-spacing-plus fw-bold"
-                                        :class="{'c-yablue': link =='used' }"
-                                        @click.prevent="setLink('used')"
-                                        >С пробегом</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-xl-3 mb-3">
-                            <multiselect 
-                                v-model="brandValue" 
-                                tag-placeholder="Выбрать бренд" 
-                                placeholder="Марка" 
-                                label="name" 
-                                track-by="code" 
-                                :options="brandOptions" 
-                                :multiple="true" 
-                                :searchable="false"
-                                :close-on-select="false" 
-                                :clear-on-select="false"
-                                selectLabel="Выбрать"
-                                selectedLabel="Выбрано"
-                                deselectLabel="Удалить"
-                                >
-                                <template slot="selection" slot-scope="{ values, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">{{ values.length }} выбрано</span></template>
-                                </multiselect>
-                        </div>
-                        <div class="col-md-6 col-xl-3 mb-3">
-                            <multiselect 
-                                v-model="modelValue" 
-                                tag-placeholder="Выбрать модель" 
-                                placeholder="Модель" 
-                                label="name" 
-                                track-by="code" 
-                                :options="modelOptions" 
-                                :multiple="true" 
-                                :searchable="false"
-                                :close-on-select="false" 
-                                :clear-on-select="false"
-                                selectLabel="Выбрать"
-                                selectedLabel="Выбрано"
-                                deselectLabel="Удалить"
-                                >
-                                <template slot="selection" slot-scope="{ values, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">{{ values.length }} выбрано</span></template>
-                                </multiselect>
-                        </div>
-                        <div class="col-md-6 col-xl-3 mb-3">
-                            <div 
-                                class="bg-yawhite b-yagray b-radius-small position-relative"
-                                v-if="response">
-                                <div class="row px-3 pt-2 mb-2 align-items-center" style="height: 35px">
-                                    <div class="col-6 text-start">
-                                        {{ Format(rangeValue[0]) }} ₽
-                                    </div>
-                                    <div class="col-6 text-end">
-                                        {{ Format(rangeValue[1]) }} ₽
-                                    </div>
-                                </div>
-                                <section class="cis-filter-on-main-range-slider">
-                                    <vue-slider 
-                                        v-model="rangeValue"
-                                        :min="rangeMin"
-                                        :max="rangeMax"
-                                        :interval="rangeInterval"
-                                        tooltip="none"
-                                        @drag-end="rangeEnd"
-                                        ></vue-slider>
-                                </section>
+    <div class="py-5 bg-yablue">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <form class="">
+                        <div class="row mb-3">
+                            <div class="col-6"><h3 class="fw-normal c-yawhite">Найти автомобиль</h3></div>
+                            <div class="col-6 text-end">
+                                <ul class="list-inline text-minus pt-2">
+                                    <li class="list-inline-item ms-3">
+                                        <a 
+                                            href="#" 
+                                            class="text-uppercase c-yawhite c-h-yawhite text-decoration-none letter-spacing-plus fw-bold"
+                                            :class="{'text-decoration-underline': link =='pass' }"
+                                            @click.prevent="setLink('pass')"
+                                            >Легковые</a>
+                                    </li>
+                                    <li class="list-inline-item ms-3">
+                                        <a 
+                                            href="#" 
+                                            class="text-uppercase c-yawhite c-h-yawhite text-decoration-none letter-spacing-plus fw-bold"
+                                            :class="{'text-decoration-underline': link =='comm' }"
+                                            @click.prevent="setLink('comm')"
+                                            >Коммерческие</a>
+                                    </li>
+                                </ul>
                             </div>
-                            <div 
-                                class="bg-yawhite b-yagray b-radius-small"
-                                style="height: 45px;"
-                                v-else></div>
                         </div>
-                        <div class="col-md-6 col-xl-3 mb-3">
-                            <a 
-                                :href="buttonLink" 
-                                class="d-block text-center c-yawhite c-h-yawhite bg-h-yablue bg-yadarkblue text-decoration-none b-radius-small but-lg"
-                                style="padding: 10px;"
-                                >Показать {{ Format(totalCount) }} авто</a>
+                        <div class="row">
+                            <div class="col-md-6 col-xl-3 mb-3">
+                                <multiselect 
+                                    v-model="brandValue" 
+                                    tag-placeholder="Выбрать бренд" 
+                                    placeholder="Марка" 
+                                    label="name" 
+                                    track-by="code" 
+                                    :options="brandOptions" 
+                                    :multiple="true" 
+                                    :searchable="false"
+                                    :close-on-select="false" 
+                                    :clear-on-select="false"
+                                    selectLabel="Выбрать"
+                                    selectedLabel="Выбрано"
+                                    deselectLabel="Удалить"
+                                    >
+                                    <template slot="selection" slot-scope="{ values, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">{{ values.length }} выбрано</span></template>
+                                    </multiselect>
+                            </div>
+                            <div class="col-md-6 col-xl-3 mb-3">
+                                <multiselect 
+                                    v-model="modelValue" 
+                                    tag-placeholder="Выбрать модель" 
+                                    placeholder="Модель" 
+                                    label="name" 
+                                    track-by="code" 
+                                    :options="modelOptions" 
+                                    :multiple="true" 
+                                    :searchable="false"
+                                    :close-on-select="false" 
+                                    :clear-on-select="false"
+                                    selectLabel="Выбрать"
+                                    selectedLabel="Выбрано"
+                                    deselectLabel="Удалить"
+                                    >
+                                    <template slot="selection" slot-scope="{ values, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">{{ values.length }} выбрано</span></template>
+                                    </multiselect>
+                            </div>
+                            <div class="col-md-6 col-xl-3 mb-3">
+                                <div 
+                                    class="bg-yawhite b-yagray b-radius-small position-relative"
+                                    v-if="response">
+                                    <div class="row px-3 pt-2 mb-2 align-items-center" style="height: 35px">
+                                        <div class="col-6 text-start">
+                                            {{ Format(rangeValue[0]) }} ₽
+                                        </div>
+                                        <div class="col-6 text-end">
+                                            {{ Format(rangeValue[1]) }} ₽
+                                        </div>
+                                    </div>
+                                    <section class="cis-filter-on-main-range-slider">
+                                        <vue-slider 
+                                            v-model="rangeValue"
+                                            :min="rangeMin"
+                                            :max="rangeMax"
+                                            :interval="rangeInterval"
+                                            tooltip="none"
+                                            @drag-end="rangeEnd"
+                                            ></vue-slider>
+                                    </section>
+                                </div>
+                                <div 
+                                    class="bg-yawhite b-yagray b-radius-small"
+                                    style="height: 45px;"
+                                    v-else></div>
+                            </div>
+                            <div class="col-md-6 col-xl-3 mb-3">
+                                <a 
+                                    :href="buttonLink" 
+                                    class="d-block text-center c-yablack c-h-yablack bg-h-yayellow bg-yadarkyellow text-decoration-none b-radius-small but-lg"
+                                    style="padding: 10px;"
+                                    >Показать {{ Format(totalCount) }} авто</a>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
+            
         </div>
-        
     </div>
 </template>
 
@@ -182,6 +184,7 @@ export default {
 
     mounted: function() {
 
+        console.log(this.$root.dealership)
         this.getBrands()
         setInterval(() => {
             
@@ -197,15 +200,16 @@ export default {
 
         getBrands() {
 
-            let url = 'https://apps.yug-avto.ru/API/get/cis/brands/'+this.$root.link+'/?token='+this.$root.token
+            let url = 'https://apps.yug-avto.ru/API/get/cis/brands/used/?token='+this.$root.token
+            if ( this.$root.link == 'comm' ) url += '&dealership='+this.$root.dealership
             if ( this.$root.city ) url += '&city='+this.$root.city
 
             this.axios.get(url).then((response) => {
                 
                 this.$root.response = response.data.dropLists.brands
+                // this.$root.bodies = response.data.dropLists.bodies
                 this.$root.response.sort((a, b) => a.vehicles < b.vehicles ? 1 : -1)
                 this.$root.inCity = response.data.in_city
-                console.log(this.$root.inCity)
                 this.buildBrands().then( () => {
                     this.buildRange('brandOptions')
                     this.buttonLink = this.buildLink()
@@ -217,7 +221,7 @@ export default {
 
         buildLink() {
 
-            let l = '/cars/'+this.link+'/#', q = ''
+            let l = '/cars/used/#', q = ''
 
             if ( this.brandValue.length == 1 ) l += '/'+this.brandValue[0].code
             if ( this.brandValue.length == 1 && this.modelValue.length == 1 ) l += '/'+this.modelValue[0].code
@@ -239,6 +243,7 @@ export default {
             if ( this.rangeValue[0] != 0 || this.rangeValue[1] != 99999999 ) {
                 q += '&price='+this.rangeValue.join(',')
             }
+            if ( this.$root.link == 'comm' ) q += '&dealership='+this.$root.dealership
 
             return l + ((q.length)?'?':'') + q
         },
@@ -350,6 +355,11 @@ export default {
 
 fieldset[disabled] .multiselect {
   pointer-events: none;
+}
+
+.vue-slider-process {
+  background-color: var(--yayellow);
+  border-radius: 15px;
 }
 .multiselect__spinner {
   position: absolute;

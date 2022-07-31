@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div class="row my-5 cis-filter-on-main-brands">
+    <div class="container my-5">
+        <div class="row cis-filter-on-main-brands">
             <div class="col-6">
                 <h3 class="fw-normal">Автомобили в наличии</h3>
             </div>

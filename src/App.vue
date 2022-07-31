@@ -1,5 +1,5 @@
 <template>
-    <div class="container my-5" id="CISMAinBlock">
+    <div id="CISMAinBlock">
         <CISForm />
         <!-- <CISFormEmpty v-if="!response" /> -->
         <CISBrands v-if="response" />
