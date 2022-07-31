@@ -151,7 +151,10 @@ export default {
         brandValue: function(newValue) {
             this.modelOptions = []
             if ( newValue.length ) {
-                let url = 'https://apps.yug-avto.ru/API/get/cis/models/'+this.$root.link+'/?token='+this.$root.token+'&brand='
+                let url = 'https://apps.yug-avto.ru/API/get/cis/models/used/?token='+this.$root.token
+                if ( this.$root.link == 'comm' ) url += '&dealership='+this.$root.dealership
+                if ( this.$root.city ) url += '&city='+this.$root.city
+                url += '&brand='
                 newValue.forEach( (i, indx) => {
                     url += i.code
                     if ( indx < newValue.length-1 ) url += ','  
@@ -160,7 +163,7 @@ export default {
                     
                     response.data.forEach( (i) => {
                         this.modelOptions.push(
-                            { name: i.name, code: i.alias, min: i.min, max: i.max, vehicles: i.statistics[1].counter + i.statistics[2].counter }
+                            { name: i.name, code: i.code, min: i.min, max: i.max, vehicles: i.vehicles }
                         )
                     })
                 })
