@@ -24,7 +24,7 @@
                 :key="n"
                 >
                 <a 
-                    :href="'/cars/used/#/'+brands[n-1].code+(($root.link=='comm')?'?dealership='+$root.dealership:'')" 
+                    :href="'/cars/used/'+brands[n-1].code+(($root.link=='comm')?'?dealership='+$root.dealership:'')" 
                     class="text-decoration-none c-yadarkgray c-h-yablack d-block b-radius-small py-1 ps-3 d-flex align-items-center justify-content-between"
                     >
                     {{ brands[n-1].name }}
