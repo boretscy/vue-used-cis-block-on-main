@@ -41,10 +41,10 @@ export default {
     name: 'CISBrands',
     computed: {
         link() {return this.$root.link},
-        brands() {return this.$root.response},
+        brands() {return this.$root.brands},
         brandsCount() {
             let res = 18
-            if ( this.$root.response.length < res ) res = this.$root.response.length
+            if ( this.$root.brands.length < res ) res = this.$root.brands.length
             return res
         }
     }
