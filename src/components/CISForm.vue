@@ -182,6 +182,10 @@ export default {
     },
 
     mounted: function() {
+
+        this.buildRange('brands')
+        this.buttonLink = this.buildLink()
+        this.totalCount = this.buildTotal()
         
         setInterval(() => {
             
