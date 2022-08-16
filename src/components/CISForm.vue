@@ -35,7 +35,7 @@
                                     placeholder="Марка" 
                                     label="name" 
                                     track-by="code" 
-                                    :options="brandOptions" 
+                                    :options="brands" 
                                     :multiple="true" 
                                     :searchable="false"
                                     :close-on-select="false" 
@@ -127,19 +127,11 @@ export default {
             rangeMin: 0,
             rangeMax: 99999999,
             rangeInterval: 1,
-
             totalCount: 0,
             buttonLink: '/',
-
-            brandValue: [
-            ],
-            brandOptions: [
-            ],
-
-            modelValue: [
-            ],
-            modelOptions: [
-            ],
+            brandValue: [],
+            modelValue: [],
+            modelOptions: [],
         }
     },
     computed: {
@@ -149,6 +141,7 @@ export default {
     },
     watch: {
         brandValue: function(newValue) {
+            
             this.modelOptions = []
             this.modelValue = []
             if ( newValue.length ) {
@@ -162,19 +155,14 @@ export default {
                     if ( indx < newValue.length-1 ) url += ','  
                 })
                 this.axios.get(url).then((response) => {
-                    
-                    response.data.forEach( (i) => {
-                        this.modelOptions.push(
-                            { name: i.name, code: i.code, min: i.min, max: i.max, vehicles: i.vehicles }
-                        )
-                    })
+                    this.modelOptions = response.data
+                    this.buildRange('modelOptions')
                 })
+            } else {
+                this.buildRange('brands')
             }
-            if ( newValue.length ) this.buildRange('brandValue')
-            if ( !newValue.length ) this.buildRange('brandOptions')
             this.buttonLink = this.buildLink()
             this.totalCount = this.buildTotal()
-
         },
         modelValue: function(newValue) {
             this.buttonLink = this.buildLink()
@@ -183,14 +171,13 @@ export default {
             if ( !newValue.length ) this.buildRange('modelOptions')
         },
         '$root.link': function() {
+            this.brandValue = []
             this.$parent.getBrands()
         },
         '$root.brands' : function() {
-            this.buildBrands().then( () => {
-                this.buildRange('brandOptions')
-                this.buttonLink = this.buildLink()
-                this.totalCount = this.buildTotal()
-            })
+            this.buildRange('brands')
+            this.buttonLink = this.buildLink()
+            this.totalCount = this.buildTotal()
         }
     },
 
@@ -236,16 +223,6 @@ export default {
 
             return l + ((q.length)?'?':'') + q
         },
-        buildBrands() {
-            return new Promise((resolve) => {
-                this.brandValue = []
-                this.brandOptions = []
-                this.$root.brands.forEach( (i) => {
-                    this.brandOptions.push(i)
-                })
-                resolve(true)
-            })
-        },
         buildTotal() {
             
             let res = 0
@@ -265,7 +242,7 @@ export default {
                         res += i.vehicles
                     })
                 } else {
-                    this.brandOptions.forEach( (i) => {
+                    this.brands.forEach( (i) => {
                         res += i.vehicles
                     })
                 }
@@ -299,23 +276,24 @@ export default {
             }
             url += '&price='+this.rangeValue.join(',')
             url += '&token='+this.$root.token
+            if ( this.$root.link == 'comm' ) url += '&dealership='+this.$root.dealership
+            if ( this.$root.link == 'pass' ) url += '&!dealership='+this.$root.dealership
 
             this.axios.get(url).then((response) => {
                 this.totalCount = response.data.totalCount
             })
         },
-        buildRange(from = 'brandOptions') {
+        buildRange(from = 'brands') {
             this.resetRange()
-            
             let min = 99999999, max = 0
             this[from].forEach( (i) => {
                 if ( i.min < min ) min = i.min
                 if ( i.max > max ) max = i.max
             })
 
-            this.rangeValue = [min, max]
             this.rangeMin = min
             this.rangeMax = max
+            this.rangeValue = [min, max]
         },
 
         setLink(v) {
