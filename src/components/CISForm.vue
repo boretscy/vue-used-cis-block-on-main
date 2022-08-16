@@ -150,6 +150,7 @@ export default {
     watch: {
         brandValue: function(newValue) {
             this.modelOptions = []
+            this.modelValue = []
             if ( newValue.length ) {
                 let url = 'https://apps.yug-avto.ru/API/get/cis/models/used/?token='+this.$root.token
                 if ( this.$root.link == 'comm' ) url += '&dealership='+this.$root.dealership
@@ -194,9 +195,7 @@ export default {
     },
 
     mounted: function() {
-
-        // console.log(this.$root.dealership)
-        // this.getBrands()
+        
         setInterval(() => {
             
             if ( localStorage.getItem('YAPP_SELECTED_CITY') != this.$root.city ) {
