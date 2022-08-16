@@ -153,6 +153,7 @@ export default {
             if ( newValue.length ) {
                 let url = 'https://apps.yug-avto.ru/API/get/cis/models/used/?token='+this.$root.token
                 if ( this.$root.link == 'comm' ) url += '&dealership='+this.$root.dealership
+                if ( this.$root.link == 'pass' ) url += '&!dealership='+this.$root.dealership
                 if ( this.$root.city ) url += '&city='+this.$root.city
                 url += '&brand='
                 newValue.forEach( (i, indx) => {
