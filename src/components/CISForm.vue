@@ -278,6 +278,7 @@ export default {
             url += '&token='+this.$root.token
             if ( this.$root.link == 'comm' ) url += '&dealership='+this.$root.dealership
             if ( this.$root.link == 'pass' ) url += '&!dealership='+this.$root.dealership
+            if ( this.$root.city ) url += '&city='+this.$root.city
 
             this.axios.get(url).then((response) => {
                 this.totalCount = response.data.totalCount
