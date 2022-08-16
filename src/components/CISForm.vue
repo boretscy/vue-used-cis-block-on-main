@@ -144,6 +144,7 @@ export default {
             
             this.modelOptions = []
             this.modelValue = []
+
             if ( newValue.length ) {
                 let url = 'https://apps.yug-avto.ru/API/get/cis/models/used/?token='+this.$root.token
                 if ( this.$root.link == 'comm' ) url += '&dealership='+this.$root.dealership
@@ -160,15 +161,24 @@ export default {
                 })
             } else {
                 this.buildRange('brands')
+                
             }
+
             this.buttonLink = this.buildLink()
             this.totalCount = this.buildTotal()
         },
-        modelValue: function(newValue) {
+        modelValue: function(n) {
             this.buttonLink = this.buildLink()
             this.totalCount = this.buildTotal()
-            if ( newValue.length ) this.buildRange('modelValue')
-            if ( !newValue.length ) this.buildRange('modelOptions')
+            if ( n.length ) {
+                this.buildRange('modelValue')
+            }
+            if ( !n.length && this.modelOptions.length ) {
+                this.buildRange('modelOptions')
+            }
+            if ( !n.length && !this.modelOptions.length ) {
+                this.buildRange('brands')
+            }
         },
         '$root.link': function() {
             this.brandValue = []
@@ -289,7 +299,7 @@ export default {
             })
         },
         buildRange(from = 'brands') {
-            this.resetRange()
+
             let min = 99999999, max = 0
             this[from].forEach( (i) => {
                 if ( i.min < min ) min = i.min
