@@ -13,7 +13,6 @@
                 </a>
             </div>
         </div>
-
         <div
             class="row mb-5"
             v-if="brands"

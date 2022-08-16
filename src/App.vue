@@ -1,8 +1,8 @@
 <template>
     <div id="CISMAinBlock">
-        <CISForm v-if="brands" />
+        <CISForm v-if="brands.length > 0" />
         <CISFormEmpty v-else />
-        <CISBrands v-if="brands" />
+        <CISBrands v-if="brands.length > 0" />
         <CISBrandsEmpty v-else />
         <CISBodies v-if="bodies"/>
         <CISBodiesEmpty v-else />
