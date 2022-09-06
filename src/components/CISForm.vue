@@ -24,6 +24,14 @@
                                             @click.prevent="setLink('comm')"
                                             >Коммерческие</a>
                                     </li>
+                                    <li class="list-inline-item ms-3">
+                                        <a 
+                                            href="#" 
+                                            class="text-uppercase c-yawhite c-h-yawhite text-decoration-none letter-spacing-plus fw-bold"
+                                            :class="{'text-decoration-underline': link =='prem' }"
+                                            @click.prevent="setLink('prem')"
+                                            >Премиум</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -147,8 +155,9 @@ export default {
 
             if ( newValue.length ) {
                 let url = 'https://apps.yug-avto.ru/API/get/cis/models/used/?token='+this.$root.token
-                if ( this.$root.link == 'comm' ) url += '&dealership='+this.$root.dealership
-                if ( this.$root.link == 'pass' ) url += '&!dealership='+this.$root.dealership
+                if ( this.$root.link == 'comm' ) url += '&dealership='+this.$root.comm
+                if ( this.$root.link == 'prem' ) url += '&dealership='+this.$root.prem
+                if ( this.$root.link == 'pass' ) url += '&!dealership='+this.$root.comm+','+this.$root.prem
                 if ( this.$root.city ) url += '&city='+this.$root.city
                 url += '&brand='
                 newValue.forEach( (i, indx) => {
@@ -161,7 +170,6 @@ export default {
                 })
             } else {
                 this.buildRange('brands')
-                
             }
 
             this.buttonLink = this.buildLink()
@@ -233,7 +241,9 @@ export default {
             if ( this.rangeValue[0] != 0 || this.rangeValue[1] != 99999999 ) {
                 q += '&price='+this.rangeValue.join(',')
             }
-            if ( this.$root.link == 'comm' ) q += '&dealership='+this.$root.dealership
+            if ( this.$root.link == 'comm' ) q += '&dealership='+this.$root.comm
+            if ( this.$root.link == 'prem' ) q += '&dealership='+this.$root.prem
+            if ( this.$root.link == 'pass' ) q += '&!dealership='+this.$root.prem+','+this.$root.comm
 
             return l + ((q.length)?'?':'') + q
         },

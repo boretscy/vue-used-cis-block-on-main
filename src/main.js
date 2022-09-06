@@ -18,7 +18,8 @@ new Vue({
             apiUrl: 'https://apps.yug-avto.ru/API/get/cis/',
             city: localStorage.getItem('YAPP_SELECTED_CITY') || null,
             inCity: null,
-            dealership: document.getElementById('CISMAinBlock').getAttribute('dealership') || null
+            comm: document.getElementById('CISMAinBlock').getAttribute('comm') || null,
+            prem: document.getElementById('CISMAinBlock').getAttribute('prem') || null
         }
     }
 }).$mount('#CISMAinBlock')

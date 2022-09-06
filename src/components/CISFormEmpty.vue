@@ -22,6 +22,13 @@
                                             @click.prevent="setLink('comm')"
                                             >Коммерческие</a>
                                     </li>
+                                    <li class="list-inline-item ms-3">
+                                        <a 
+                                            href="#" 
+                                            class="text-uppercase c-yawhite c-h-yawhite text-decoration-none letter-spacing-plus fw-bold"
+                                            @click.prevent="setLink('prem')"
+                                            >Премиум</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

@@ -36,8 +36,9 @@ export default {
         getBrands() {
 
             let url = 'https://apps.yug-avto.ru/API/get/cis/brands/used/?token='+this.$root.token
-            if ( this.$root.link == 'comm' ) url += '&dealership='+this.$root.dealership
-            if ( this.$root.link == 'pass' ) url += '&!dealership='+this.$root.dealership
+            if ( this.$root.link == 'comm' ) url += '&dealership='+this.$root.comm
+            if ( this.$root.link == 'prem' ) url += '&dealership='+this.$root.prem
+            if ( this.$root.link == 'pass' ) url += '&!dealership='+this.$root.prem+','+this.$root.comm
             if ( this.$root.city ) url += '&city='+this.$root.city
 
             this.axios.get(url).then((response) => {
