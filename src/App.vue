@@ -1,6 +1,6 @@
 <template>
     <div id="CISMAinBlock">
-        <CISForm v-if="brands.length > 0" />
+        <CISForm v-if="brands.length > 0" ref="CISForm" />
         <CISFormEmpty v-else />
         <CISBrands v-if="brands.length > 0" />
         <CISBrandsEmpty v-else />
@@ -31,15 +31,22 @@ export default {
     },
     mounted: function() {
         this.getBrands()
+        setInterval(() => {
+            if ( localStorage.getItem('YAPP_SELECTED_CITY') != this.$root.city ) {
+                this.$root.city = localStorage.getItem('YAPP_SELECTED_CITY')
+                this.getBrands()
+            }
+        }, 100);
     },
     methods: {
         getBrands() {
 
-            let url = 'https://apps.yug-avto.ru/API/get/cis/brands/used/?token='+this.$root.token
-            if ( this.$root.link == 'comm' ) url += '&dealership='+this.$root.comm
-            if ( this.$root.link == 'prem' ) url += '&dealership='+this.$root.prem
-            if ( this.$root.link == 'pass' ) url += '&!dealership='+this.$root.prem+','+this.$root.comm
-            if ( this.$root.city ) url += '&city='+this.$root.city
+            let url = this.$root.apiUrl + 'brands'+ '/' + this.$root.settings.items[this.$root.itemIndx].code + '/'
+            let get = []
+            get.push('token='+this.$root.token)
+            for ( let i in this.$root.settings.items[this.$root.itemIndx].params ) get.push(i+'='+this.$root.settings.items[this.$root.itemIndx].params[i])
+            if ( this.$root.city ) get.push('city='+this.$root.city)
+            url += '?' + get.join('&')
 
             this.axios.get(url).then((response) => {
                 this.$root.brands = []
@@ -47,6 +54,8 @@ export default {
                 this.$root.bodies = response.data.dropLists.bodies
                 this.$root.brands.sort((a, b) => a.vehicles < b.vehicles ? 1 : -1)
                 this.$root.inCity = response.data.in_city
+            }).then(() => {
+                this.$refs.CISForm.init()
             })
         }
     }
