@@ -1,11 +1,17 @@
 <template>
-    <div class="pb-5 bg-yablue">
+    <div 
+        :class="{'pb-5 blue-mode-full': $root.settings.blueMode == 'full', 'blue-mode-semi': $root.settings.blueMode == 'semi'}">
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <form class="">
+                    <form
+                        :class="{'p-3 p-md-5 b-radius-small shadow-small bg-yawhite': $root.settings.blueMode == 'semi'}"
+                        >
                         <div class="row mb-3">
-                            <div class="col-6 h3 fw-normal c-yawhite">Найти автомобиль</div>
+                            <div 
+                                class="col-6 h3 fw-normal"
+                                :class="{'c-yawhite': $root.settings.blueMode == 'full', 'c-yablack': $root.settings.blueMode == 'semi'}"
+                                >Найти автомобиль</div>
                             <div class="col-6 text-end">
                                 <ul class="list-inline text-minus pt-2">
                                     <li 
@@ -14,8 +20,8 @@
                                         :key="indx">
                                         <a 
                                             href="#" 
-                                            class="text-uppercase c-yawhite c-h-yawhite text-decoration-none letter-spacing-plus fw-bold"
-                                            :class="{'text-decoration-underline': $root.itemIndx == indx }"
+                                            class="text-uppercase text-decoration-none letter-spacing-plus fw-bold"
+                                            :class="{'text-decoration-underline': $root.itemIndx == indx, 'c-yawhite c-h-yawhite': $root.settings.blueMode == 'full', 'c-yablack c-h-yablack': $root.settings.blueMode == 'semi'}"
                                             @click.prevent="$root.itemIndx = indx"
                                             >{{ item.name }}</a>
                                     </li>
@@ -357,6 +363,21 @@ export default {
 </script>
 
 <style>
+.blue-mode-full {
+    background-color: var(--yablue);
+}
+.blue-mode-semi {
+    position: relative;
+}
+.blue-mode-semi::before {
+    content: '';
+    position: absolute;
+    background-color: var(--yablue);
+    width: 100%;
+    height: 47%;
+    top: 0;
+    z-index: -1;
+}
 .cis-filter-on-main-range-slider {
     position: absolute;
 	bottom: -25px;
