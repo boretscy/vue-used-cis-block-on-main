@@ -201,7 +201,7 @@ export default {
         this.init()
     },
 
-        methods: {
+    methods: {
 
         init() {
             this.set()
@@ -247,9 +247,15 @@ export default {
                 }
             }
 
+            if ( this.$root.city ) get.push('city='+this.$root.city)
+
+            console.log(get)
+
             if ( get.length ) {
                 link += '?'+get.join('&')
             }
+
+            console.log(link)
 
             return link
         },
@@ -270,6 +276,12 @@ export default {
 
             if ( this.$root.price.value[0] != this.$root.price.range[0] || this.$root.price.value[1] != this.$root.price.range[1] ) {
                res.push('price='+this.$root.price.value.join(','))
+            }
+
+            if ( this.$root.settings.items[this.$root.itemIndx].params ) {
+                for ( let i in this.$root.settings.items[this.$root.itemIndx].params ) {
+                    res.push(i+'='+this.$root.settings.items[this.$root.itemIndx].params[i])
+                }
             }
 
             return res
