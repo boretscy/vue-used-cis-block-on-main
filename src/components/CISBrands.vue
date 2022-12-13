@@ -23,7 +23,7 @@
                 :key="n"
                 >
                 <a 
-                    :href="'/cars/used/'+brands[n-1].code+(($root.link=='comm')?'?dealership='+$root.dealership:'')" 
+                    :href="buildLink(brands[n-1].code)" 
                     class="text-decoration-none c-yadarkgray c-h-yablack d-block b-radius-small py-1 ps-3 d-flex align-items-center justify-content-between"
                     >
                     {{ brands[n-1].name }}
@@ -39,11 +39,27 @@
 export default {
     name: 'CISBrands',
     computed: {
-        link() {return this.$root.link},
         brands() {return this.$root.brands},
         brandsCount() {
             let res = 18
             if ( this.$root.brands.length < res ) res = this.$root.brands.length
+            return res
+        }
+    },
+    methods: {
+        buildLink( brand = null ) {
+            let res = this.$root.settings.baseURL + '/' + this.$root.settings.items[this.$root.itemIndx].code + '/'
+            if ( brand ) res += brand
+            let get = []
+            if ( this.$root.settings.items[this.$root.itemIndx].params ) {
+                for ( let i in this.$root.settings.items[this.$root.itemIndx].params ) {
+                    get.push(i+'='+this.$root.settings.items[this.$root.itemIndx].params[i])
+                }
+            }
+            if ( this.$root.city ) get.push('city='+this.$root.city)
+            if ( get.length ) {
+                res += '?'+get.join('&')
+            }
             return res
         }
     }

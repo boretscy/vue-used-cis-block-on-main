@@ -249,8 +249,6 @@ export default {
 
             if ( this.$root.city ) get.push('city='+this.$root.city)
 
-            console.log(get)
-
             if ( get.length ) {
                 link += '?'+get.join('&')
             }
