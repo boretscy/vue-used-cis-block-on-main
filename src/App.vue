@@ -4,8 +4,8 @@
         <CISFormEmpty v-else />
         <CISBrands v-if="brands.length > 0" />
         <CISBrandsEmpty v-else />
-        <CISBodies v-if="bodies"/>
-        <CISBodiesEmpty v-else />
+        <!-- <CISBodies v-if="bodies"/>
+        <CISBodiesEmpty v-else /> -->
     </div>
 </template>
 
@@ -15,15 +15,15 @@ import CISForm from './components/CISForm.vue'
 import CISFormEmpty from './components/CISFormEmpty.vue'
 import CISBrands from './components/CISBrands.vue'
 import CISBrandsEmpty from './components/CISBrandsEmpty.vue'
-import CISBodies from './components/CISBodies.vue'
-import CISBodiesEmpty from './components/CISBodiesEmpty.vue'
+// import CISBodies from './components/CISBodies.vue'
+// import CISBodiesEmpty from './components/CISBodiesEmpty.vue'
 
 export default {
     name: 'App',
     components: {
         CISForm, CISFormEmpty,
         CISBrands, CISBrandsEmpty,
-        CISBodies, CISBodiesEmpty
+        // CISBodies, CISBodiesEmpty
     },
     computed: {
         brands() {return this.$root.brands},
