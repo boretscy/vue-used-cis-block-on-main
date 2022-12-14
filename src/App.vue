@@ -1,11 +1,13 @@
 <template>
     <div id="CISMAinBlock">
-        <CISForm v-if="brands.length > 0" ref="CISForm" />
+        <CISForm v-if="$root.brands.length > 0" ref="CISForm" />
         <CISFormEmpty v-else />
-        <CISBrands v-if="brands.length > 0" />
+        <CISBrands v-if="$root.brands.length > 0" />
         <CISBrandsEmpty v-else />
-        <!-- <CISBodies v-if="bodies"/>
-        <CISBodiesEmpty v-else /> -->
+        <div v-if="$root.settings.bodies">
+            <CISBodies v-if="$root.bodies"/>
+            <CISBodiesEmpty v-else />
+        </div>
     </div>
 </template>
 
@@ -15,19 +17,15 @@ import CISForm from './components/CISForm.vue'
 import CISFormEmpty from './components/CISFormEmpty.vue'
 import CISBrands from './components/CISBrands.vue'
 import CISBrandsEmpty from './components/CISBrandsEmpty.vue'
-// import CISBodies from './components/CISBodies.vue'
-// import CISBodiesEmpty from './components/CISBodiesEmpty.vue'
+import CISBodies from './components/CISBodies.vue'
+import CISBodiesEmpty from './components/CISBodiesEmpty.vue'
 
 export default {
     name: 'App',
     components: {
         CISForm, CISFormEmpty,
         CISBrands, CISBrandsEmpty,
-        // CISBodies, CISBodiesEmpty
-    },
-    computed: {
-        brands() {return this.$root.brands},
-        bodies() {return this.$root.bodies}
+        CISBodies, CISBodiesEmpty
     },
     mounted: function() {
         this.getBrands()
