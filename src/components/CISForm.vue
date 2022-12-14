@@ -13,9 +13,9 @@
                                 :class="{'c-yawhite': $root.settings.blueMode == 'full', 'c-yablack': $root.settings.blueMode == 'semi'}"
                                 >Найти автомобиль</div>
                             <div class="col-6 text-end">
-                                <ul class="list-inline text-minus pt-2">
+                                <ul class="list-inline text-minus pt-0 pt-md-2">
                                     <li 
-                                        class="list-inline-item ms-3"
+                                        class="list-inline-item ms-3 me-0"
                                         v-for="(item, indx) in $root.settings.items"
                                         :key="indx">
                                         <a 

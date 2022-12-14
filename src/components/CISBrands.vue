@@ -1,13 +1,13 @@
 <template>
     <div class="container my-5">
         <div class="row mt-5 mb-3 cis-filter-on-main-brands">
-            <div class="col-9">
+            <div class="col-6 col-md-9">
                 <h1 class="h3 fw-normal">Автомобили в наличии <a :href="'/dealerships/?city='+$root.city" v-if="$root.inCity" role="top-menu-show-list-city">в {{ $root.inCity }}</a></h1>
             </div>
-            <div class="col-3 text-end pt-2">
+            <div class="col-6 col-md-3 text-end">
                 <a 
                     :href="'/cars/used/'" 
-                    class="c-yablack c-h-yablack text-decoration-none">
+                    class="c-yablack c-h-yablack text-decoration-none text-minus">
                     Все марки
                     <svg xmlns="http://www.w3.org/2000/svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#corner-right"></use></svg>
                 </a>
