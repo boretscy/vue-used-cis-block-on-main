@@ -1,10 +1,10 @@
 <template>
     <div class="container my-5">
         <div class="row mt-5 mb-3 cis-filter-on-main-brands">
-            <div class="col-6 col-md-9">
+            <div class="col-md-9">
                 <h1 class="h3 fw-normal">Автомобили в наличии <a :href="'/dealerships/?city='+$root.city" v-if="$root.inCity" role="top-menu-show-list-city">в {{ $root.inCity }}</a></h1>
             </div>
-            <div class="col-6 col-md-3 text-end">
+            <div class="col-md-3 text-start text-md-end">
                 <a 
                     :href="'/cars/used/'" 
                     class="c-yablack c-h-yablack text-decoration-none text-minus">
