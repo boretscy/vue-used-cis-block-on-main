@@ -9,13 +9,13 @@
                         >
                         <div class="row mb-3">
                             <div 
-                                class="col-6 h3 fw-normal"
+                                class="col-md-6 h3 fw-normal"
                                 :class="{'c-yawhite': $root.settings.blueMode == 'full', 'c-yalightblack': $root.settings.blueMode == 'semi'}"
                                 >Найти автомобиль</div>
-                            <div class="col-6 text-end">
+                            <div class="col-md-6 text-md-end">
                                 <ul class="list-inline text-minus pt-0 pt-md-2">
                                     <li 
-                                        class="list-inline-item ms-3 me-0"
+                                        class="list-inline-item ms-md-3 me-3 me-md-0"
                                         v-for="(item, indx) in $root.settings.items"
                                         :key="indx">
                                         <a 
