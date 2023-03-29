@@ -369,13 +369,13 @@ export default {
 </script>
 
 <style>
-.blue-mode-full {
+#CISMAinBlock .blue-mode-full {
     background-color: var(--yablue);
 }
-.blue-mode-semi {
+#CISMAinBlock .blue-mode-semi {
     position: relative;
 }
-.blue-mode-semi::before {
+#CISMAinBlock .blue-mode-semi::before {
     content: '';
     position: absolute;
     background-color: var(--yablue);
@@ -384,7 +384,7 @@ export default {
     top: 0;
     z-index: -1;
 }
-.cis-filter-on-main-range-slider {
+#CISMAinBlock .cis-filter-on-main-range-slider {
     position: absolute;
 	bottom: -25px;
     width: 100%;
@@ -396,18 +396,18 @@ fieldset[disabled] .multiselect {
   pointer-events: none;
 }
 
-.input-range input {
+#CISMAinBlock .input-range input {
     border: none;
     width: 100%;
     padding-top: 7px;
     outline: none;
 }
-.input-range:first-child input {
+#CISMAinBlock .input-range:first-child input {
     margin-left: 10px;
     text-align: left;
     position: relative;
 }
-.input-range:first-child::after {
+#CISMAinBlock .input-range:first-child::after {
     content: '';
     width: 1px;
     height: 20px;
@@ -416,33 +416,33 @@ fieldset[disabled] .multiselect {
     position: absolute;
     background: var(--yagray);
 }
-.input-range:last-child input {
+#CISMAinBlock .input-range:last-child input {
     margin-right: 10px;
     text-align: right;
 }
-.input-range span {
+#CISMAinBlock .input-range span {
     position: absolute;
     color: var(--yagray);
     top: -8px;
     font-size: 12px;
 }
-.input-range span.name {
+#CISMAinBlock .input-range span.name {
     left: 5px;
 }
-.input-range span.rubble {
+#CISMAinBlock .input-range span.rubble {
     right: 5px;
 }
 
-.disabled {
+#CISMAinBlock .disabled {
     opacity: .3;
     cursor: progress;
 }
 
-.vue-slider-process {
+#CISMAinBlock .vue-slider-process {
   background-color: var(--yayellow);
   border-radius: 15px;
 }
-.multiselect__spinner {
+#CISMAinBlock .multiselect__spinner {
   position: absolute;
   right: 1px;
   top: 1px;
@@ -451,8 +451,8 @@ fieldset[disabled] .multiselect {
   background: var(--yawhite);
   display: block;
 }
-.multiselect__spinner:before,
-.multiselect__spinner:after {
+#CISMAinBlock .multiselect__spinner:before,
+#CISMAinBlock .multiselect__spinner:after {
   position: absolute;
   content: "";
   top: 50%;
@@ -466,31 +466,31 @@ fieldset[disabled] .multiselect {
   border-width: 2px;
   box-shadow: 0 0 0 1px transparent;
 }
-.multiselect__spinner:before {
+#CISMAinBlock .multiselect__spinner:before {
   animation: spinning 2.4s cubic-bezier(0.41, 0.26, 0.2, 0.62);
   animation-iteration-count: infinite;
 }
-.multiselect__spinner:after {
+#CISMAinBlock .multiselect__spinner:after {
   animation: spinning 2.4s cubic-bezier(0.51, 0.09, 0.21, 0.8);
   animation-iteration-count: infinite;
 }
-.multiselect__loading-enter-active,
-.multiselect__loading-leave-active {
+#CISMAinBlock .multiselect__loading-enter-active,
+#CISMAinBlock .multiselect__loading-leave-active {
   transition: opacity 0.4s ease-in-out;
   opacity: 1;
 }
-.multiselect__loading-enter,
-.multiselect__loading-leave-active {
+#CISMAinBlock .multiselect__loading-enter,
+#CISMAinBlock .multiselect__loading-leave-active {
   opacity: 0;
 }
-.multiselect,
-.multiselect__input,
-.multiselect__single {
+#CISMAinBlock .multiselect,
+#CISMAinBlock .multiselect__input,
+#CISMAinBlock .multiselect__single {
   font-family: inherit;
   font-size: 14px;
   touch-action: manipulation;
 }
-.multiselect {
+#CISMAinBlock .multiselect {
   box-sizing: content-box;
   display: block;
   position: relative;
@@ -499,38 +499,38 @@ fieldset[disabled] .multiselect {
   text-align: left;
   color: var(--yablack);
 }
-.multiselect * {
+#CISMAinBlock .multiselect * {
   box-sizing: border-box;
 }
-.multiselect:focus {
+#CISMAinBlock .multiselect:focus {
   outline: none;
 }
-.multiselect--disabled {
+#CISMAinBlock .multiselect--disabled {
   background: #ededed;
   pointer-events: none;
   opacity: 0.6;
 }
-.multiselect--active {
+#CISMAinBlock .multiselect--active {
   z-index: 50;
 }
-.multiselect--active:not(.multiselect--above) .multiselect__current,
-.multiselect--active:not(.multiselect--above) .multiselect__input,
-.multiselect--active:not(.multiselect--above) .multiselect__tags {
+#CISMAinBlock .multiselect--active:not(.multiselect--above) .multiselect__current,
+#CISMAinBlock .multiselect--active:not(.multiselect--above) .multiselect__input,
+#CISMAinBlock .multiselect--active:not(.multiselect--above) .multiselect__tags {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.multiselect--active {
+#CISMAinBlock .multiselect--active {
     transform: none !important;
   }
-.multiselect--above.multiselect--active .multiselect__current,
-.multiselect--above.multiselect--active .multiselect__input,
-.multiselect--above.multiselect--active .multiselect__tags {
+#CISMAinBlock .multiselect--above.multiselect--active .multiselect__current,
+#CISMAinBlock .multiselect--above.multiselect--active .multiselect__input,
+#CISMAinBlock .multiselect--above.multiselect--active .multiselect__tags {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-.multiselect__input,
-.multiselect__single {
+#CISMAinBlock .multiselect__input,
+#CISMAinBlock .multiselect__single {
   position: relative;
   display: inline-block;
   min-height: 20px;
@@ -545,30 +545,30 @@ fieldset[disabled] .multiselect {
   margin-bottom: 8px;
   vertical-align: top;
 }
-.multiselect__input::placeholder {
+#CISMAinBlock .multiselect__input::placeholder {
   color: var(--yablack);
 }
-.multiselect__tag ~ .multiselect__input,
-.multiselect__tag ~ .multiselect__single {
+#CISMAinBlock .multiselect__tag ~ .multiselect__input,
+#CISMAinBlock .multiselect__tag ~ .multiselect__single {
   width: auto;
 }
-.multiselect__input:hover,
-.multiselect__single:hover {
+#CISMAinBlock .multiselect__input:hover,
+#CISMAinBlock .multiselect__single:hover {
   border-color: #cfcfcf;
 }
-.multiselect__input:focus,
-.multiselect__single:focus {
+#CISMAinBlock .multiselect__input:focus,
+#CISMAinBlock .multiselect__single:focus {
   border-color: #a8a8a8;
   outline: none;
 }
-.multiselect__single {
+#CISMAinBlock .multiselect__single {
   padding-left: 5px;
   margin-bottom: 8px;
 }
-.multiselect__tags-wrap {
+#CISMAinBlock .multiselect__tags-wrap {
   display: inline;
 }
-.multiselect__tags {
+#CISMAinBlock .multiselect__tags {
   min-height: 40px;
   display: block;
   padding: 10px 40px 0 10px;
@@ -578,7 +578,7 @@ fieldset[disabled] .multiselect {
   font-size: 14px;
   min-height: 45px;
 }
-.multiselect__tag {
+#CISMAinBlock .multiselect__tag {
   position: relative;
   display: inline-block;
   padding: 4px 26px 4px 10px;
@@ -593,7 +593,7 @@ fieldset[disabled] .multiselect {
   max-width: 100%;
   text-overflow: ellipsis;
 }
-.multiselect__tag-icon {
+#CISMAinBlock .multiselect__tag-icon {
   cursor: pointer;
   margin-left: 7px;
   position: absolute;
@@ -608,21 +608,21 @@ fieldset[disabled] .multiselect {
   transition: all 0.2s ease;
   border-radius: 5px;
 }
-.multiselect__tag-icon:after {
+#CISMAinBlock .multiselect__tag-icon:after {
   content: "×";
   color: var(--yayellow);
   font-size: 14px;
 }
-.multiselect__tag-icon:focus,
-.multiselect__tag-icon:hover {
+#CISMAinBlock .multiselect__tag-icon:focus,
+#CISMAinBlock .multiselect__tag-icon:hover {
   background: var(--yayellow);
   color: var(--yadarkblue);
 }
-.multiselect__tag-icon:focus:after,
-.multiselect__tag-icon:hover:after {
+#CISMAinBlock .multiselect__tag-icon:focus:after,
+#CISMAinBlock .multiselect__tag-icon:hover:after {
   color: white;
 }
-.multiselect__current {
+#CISMAinBlock .multiselect__current {
   line-height: 16px;
   min-height: 40px;
   box-sizing: border-box;
@@ -637,7 +637,7 @@ fieldset[disabled] .multiselect {
   border: 1px solid var(--yagray);
   cursor: pointer;
 }
-.multiselect__select {
+#CISMAinBlock .multiselect__select {
   line-height: 16px;
   display: block;
   position: absolute;
@@ -653,7 +653,7 @@ fieldset[disabled] .multiselect {
   cursor: pointer;
   transition: transform 0.2s ease;
 }
-.multiselect__select:before {
+#CISMAinBlock .multiselect__select:before {
   position: relative;
   right: 0;
   top: 65%;
@@ -664,16 +664,16 @@ fieldset[disabled] .multiselect {
   border-color: var(--yamiddlegray) transparent transparent transparent;
   content: "";
 }
-.multiselect__placeholder {
+#CISMAinBlock .multiselect__placeholder {
   color: var(--yablack);
   display: inline-block;
   margin-bottom: 10px;
   padding-top: 2px;
 }
-.multiselect--active .multiselect__placeholder {
+#CISMAinBlock .multiselect--active .multiselect__placeholder {
   display: none;
 }
-.multiselect__content-wrapper {
+#CISMAinBlock .multiselect__content-wrapper {
   position: absolute;
   display: block;
   background: var(--yawhite);
@@ -687,7 +687,7 @@ fieldset[disabled] .multiselect {
   z-index: 50;
   -webkit-overflow-scrolling: touch;
 }
-.multiselect__content {
+#CISMAinBlock .multiselect__content {
   list-style: none;
   display: inline-block;
   padding: 0;
@@ -695,7 +695,7 @@ fieldset[disabled] .multiselect {
   min-width: 100%;
   vertical-align: top;
 }
-.multiselect--above .multiselect__content-wrapper {
+#CISMAinBlock .multiselect--above .multiselect__content-wrapper {
   bottom: 100%;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -704,13 +704,13 @@ fieldset[disabled] .multiselect {
   border-bottom: none;
   border-top: 1px solid var(--yagray);
 }
-.multiselect__content::webkit-scrollbar {
+#CISMAinBlock .multiselect__content::webkit-scrollbar {
   display: none;
 }
-.multiselect__element {
+#CISMAinBlock .multiselect__element {
   display: block;
 }
-.multiselect__option {
+#CISMAinBlock .multiselect__option {
   display: block;
   padding: 12px;
   min-height: 40px;
@@ -722,7 +722,7 @@ fieldset[disabled] .multiselect {
   cursor: pointer;
   white-space: nowrap;
 }
-.multiselect__option:after {
+#CISMAinBlock .multiselect__option:after {
   top: 0;
   right: 0;
   position: absolute;
@@ -731,77 +731,77 @@ fieldset[disabled] .multiselect {
   padding-left: 20px;
   font-size: 13px;
 }
-.multiselect__option--highlight {
+#CISMAinBlock .multiselect__option--highlight {
   background: var(--yalightgray);
   outline: none;
   color: var(--yablack);
 }
-.multiselect__option--highlight:after {
+#CISMAinBlock .multiselect__option--highlight:after {
   content: attr(data-select);
   background: var(--yalightgray);
   color: var(--yamiddlegray);
 }
-.multiselect__option--selected {
+#CISMAinBlock .multiselect__option--selected {
   background: var(--yalightgray);
   color: var(--yablack);
   font-weight: bold;
 }
-.multiselect__option--selected:after {
+#CISMAinBlock .multiselect__option--selected:after {
   content: attr(data-selected);
   color: var(--yamiddlegray);
 }
-.multiselect__option--selected.multiselect__option--highlight {
+#CISMAinBlock .multiselect__option--selected.multiselect__option--highlight {
   background: var(--yalightgray);
   color: var(--yamiddlegray);
 }
-.multiselect__option--selected.multiselect__option--highlight:after {
+#CISMAinBlock .multiselect__option--selected.multiselect__option--highlight:after {
   background: var(--yalightgray);
   content: attr(data-deselect);
   color: var(--yamiddlegray);
 }
-.multiselect--disabled .multiselect__current,
-.multiselect--disabled .multiselect__select {
+#CISMAinBlock .multiselect--disabled .multiselect__current,
+#CISMAinBlock .multiselect--disabled .multiselect__select {
   background: #ededed;
   color: #a6a6a6;
 }
-.multiselect__option--disabled {
+#CISMAinBlock .multiselect__option--disabled {
   background: #ededed !important;
   color: #a6a6a6 !important;
   cursor: text;
   pointer-events: none;
 }
-.multiselect__option--group {
+#CISMAinBlock .multiselect__option--group {
   background: #ededed;
   color: var(--yablack);
 }
-.multiselect__option--group.multiselect__option--highlight {
+#CISMAinBlock .multiselect__option--group.multiselect__option--highlight {
   background: var(--yamiddlegray);
   color: var(--yawhite);
 }
-.multiselect__option--group.multiselect__option--highlight:after {
+#CISMAinBlock .multiselect__option--group.multiselect__option--highlight:after {
   background: var(--yablack);
 }
-.multiselect__option--disabled.multiselect__option--highlight {
+#CISMAinBlock .multiselect__option--disabled.multiselect__option--highlight {
   background: #dedede;
 }
-.multiselect__option--group-selected.multiselect__option--highlight {
+#CISMAinBlock .multiselect__option--group-selected.multiselect__option--highlight {
   background: var(--yalightgray);
   color: var(--yawhite);
 }
-.multiselect__option--group-selected.multiselect__option--highlight:after {
+#CISMAinBlock .multiselect__option--group-selected.multiselect__option--highlight:after {
   background: var(--yalightgray);
   content: attr(data-deselect);
   color: var(--yawhite);
 }
-.multiselect-enter-active,
-.multiselect-leave-active {
+#CISMAinBlock .multiselect-enter-active,
+#CISMAinBlock .multiselect-leave-active {
   transition: all 0.15s ease;
 }
-.multiselect-enter,
-.multiselect-leave-active {
+#CISMAinBlock .multiselect-enter,
+#CISMAinBlock .multiselect-leave-active {
   opacity: 0;
 }
-.multiselect__strong {
+#CISMAinBlock .multiselect__strong {
   margin-bottom: 8px;
   line-height: 20px;
   display: inline-block;
