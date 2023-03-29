@@ -5,12 +5,12 @@
             <div class="row">
                 <div class="col">
                     <form
-                        :class="{'p-3 p-md-5 b-radius-small shadow-small bg-yawhite': $root.settings.blueMode == 'semi'}"
+                        :class="{'p-3 p-md-5 b-radius-yaradius-25 bg-yawhite': $root.settings.blueMode == 'semi'}"
                         >
                         <div class="row mb-3">
                             <div 
                                 class="col-6 h3 fw-normal"
-                                :class="{'c-yawhite': $root.settings.blueMode == 'full', 'c-yablack': $root.settings.blueMode == 'semi'}"
+                                :class="{'c-yawhite': $root.settings.blueMode == 'full', 'c-yalightblack': $root.settings.blueMode == 'semi'}"
                                 >Найти автомобиль</div>
                             <div class="col-6 text-end">
                                 <ul class="list-inline text-minus pt-0 pt-md-2">
@@ -20,8 +20,14 @@
                                         :key="indx">
                                         <a 
                                             href="#" 
-                                            class="text-uppercase text-decoration-none letter-spacing-plus fw-bold"
-                                            :class="{'text-decoration-underline': $root.itemIndx == indx, 'c-yawhite c-h-yawhite': $root.settings.blueMode == 'full', 'c-yablack c-h-yablack': $root.settings.blueMode == 'semi'}"
+                                            class="text-uppercase text-decoration-none letter-spacing-plus fw-normal"
+                                            :class="{
+                                              'text-decoration-underline c-yawhite c-h-yawhite': $root.itemIndx == indx && $root.settings.blueMode == 'full', 
+                                              'c-yawhite c-h-yawhite': $root.itemIndx != indx && $root.settings.blueMode == 'full', 
+                                              'c-yagray c-h-yagray': $root.itemIndx == indx && $root.settings.blueMode == 'semi', 
+                                              'c-yalightblack c-h-yalightblack': $root.itemIndx != indx && $root.settings.blueMode == 'semi'
+                                              
+                                            }"
                                             @click.prevent="$root.itemIndx = indx"
                                             >{{ item.name }}</a>
                                     </li>
@@ -69,16 +75,16 @@
                             </div>
                             <div class="col-md-6 col-xl-3 mb-3">
                                 <div 
-                                    class="bg-yawhite b-yagray b-radius-small position-relative"
+                                    class="bg-yalightgray b-yalightgray b-radius-yaradius-15 position-relative"
                                     v-if="brandOptions">
                                     <div class="row px-3 pt-2 mb-2 align-items-center" style="height: 35px">
                                         <div class="col-6 text-start position-relative input-range">
-                                            <input type="text" v-model="minVal" @blur="rangeEnd" @keyup.enter="rangeEnd" @input="rangeInput">
+                                            <input type="text" class="bg-yalightgray" v-model="minVal" @blur="rangeEnd" @keyup.enter="rangeEnd" @input="rangeInput">
                                             <span class="name">Цена от</span>
                                             <span class="rubble">₽</span>
                                         </div>
                                         <div class="col-6 text-end position-relative input-range">
-                                            <input type="text" v-model="maxVal" @blur="rangeEnd" @keyup.enter="rangeEnd" @input="rangeInput">
+                                            <input type="text" class="bg-yalightgray" v-model="maxVal" @blur="rangeEnd" @keyup.enter="rangeEnd" @input="rangeInput">
                                             <span class="name">до</span>
                                             <span class="rubble">₽</span>
                                         </div>
@@ -96,14 +102,14 @@
                                     </section>
                                 </div>
                                 <div 
-                                    class="bg-yawhite b-yagray b-radius-small"
+                                    class="bg-yawhite b-yagray b-radius-yaradius-15"
                                     style="height: 45px;"
                                     v-else></div>
                             </div>
                             <div class="col-md-6 col-xl-3 mb-3">
                                 <a 
                                     :href="buttonLink" 
-                                    class="d-block text-center c-yablack c-h-yablack bg-h-yayellow bg-yadarkyellow text-decoration-none b-radius-small but-lg"
+                                    class="d-block text-center c-yalightblack c-h-yalightblack bg-h-yayellow bg-yadarkyellow text-decoration-none b-radius-yaradius-15 but-lg"
                                     :class="{'disabled': !activeButton}"
                                     style="padding: 10px;"
                                     >{{ (activeButton) ? 'Показать '+String(totalCount).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')+' авто' : defaultButtonText }}</a>
@@ -481,7 +487,7 @@ fieldset[disabled] .multiselect {
 .multiselect__input,
 .multiselect__single {
   font-family: inherit;
-  font-size: 16px;
+  font-size: 14px;
   touch-action: manipulation;
 }
 .multiselect {
@@ -531,7 +537,7 @@ fieldset[disabled] .multiselect {
   line-height: 20px;
   border: none;
   border-radius: 5px;
-  background: var(--yawhite);
+  background: var(--yalightgray);
   padding: 0 0 0 5px;
   width: calc(100%);
   transition: border 0.1s ease;
@@ -566,9 +572,9 @@ fieldset[disabled] .multiselect {
   min-height: 40px;
   display: block;
   padding: 10px 40px 0 10px;
-  border-radius: 5px;
-  border: 1px solid var(--yagray);
-  background: var(--yawhite);
+  border-radius: var(--yaradius15);
+  border: none;
+  background: var(--yalightgray);
   font-size: 14px;
   min-height: 45px;
 }
@@ -580,7 +586,7 @@ fieldset[disabled] .multiselect {
   margin-right: 10px;
   color: var(--yawhite);
   line-height: 1;
-  background: var(--yadarkblue);
+  background: var(--yablue);
   margin-bottom: 5px;
   white-space: nowrap;
   overflow: hidden;

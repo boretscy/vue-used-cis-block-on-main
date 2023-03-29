@@ -24,10 +24,10 @@
                 >
                 <a 
                     :href="buildLink(brands[n-1].code)" 
-                    class="text-decoration-none c-yadarkgray c-h-yablack d-block b-radius-small py-1 ps-3 d-flex align-items-center justify-content-between"
+                    class="text-decoration-none c-yadarkgray c-h-yadarkgray d-block b-radius-small py-1 ps-3 d-flex align-items-center justify-content-between"
                     >
                     {{ brands[n-1].name }}
-                    <span class="p-1 b-radius-small bg-yalightgray c-yalightblack bg-h-yayellow text-center">{{ brands[n-1].vehicles }}</span>
+                    <span class="b-radius-yaradius-3 bg-yalightgray c-yalightblack bg-h-yalightgray text-end">{{ brands[n-1].vehicles }}</span>
                 </a>
             </div>
         </div>
@@ -75,13 +75,16 @@ export default {
 	top: 0;
 	right: 0;
 }
+.cis-filter-on-main-brands-item {
+    font-size: 14px;
+}
 .cis-filter-on-main-brands-item:hover a {
     font-weight: 500;
 }
 .cis-filter-on-main-brands-item span {
-    width: 40px;
-    padding: 0 !important;
-    font-weight: 600;
+    width: 30px;
+    padding: 0 3px 0 3px !important;
+    font-weight: normal;
     display: block;
 }
 .cis-filter-on-main-brands-item:hover span {
