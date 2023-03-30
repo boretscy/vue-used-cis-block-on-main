@@ -15,12 +15,12 @@
                             <div class="col-md-6 text-md-end">
                                 <ul class="list-inline text-minus-minus pt-0 pt-md-2 mb-0">
                                     <li 
-                                        class="list-inline-item ms-md-3 me-3 me-md-0"
+                                        class="list-inline-item ms-md-3 me-3 me-md-0 py-3"
                                         v-for="(item, indx) in $root.settings.items"
                                         :key="indx">
                                         <a 
                                             href="#" 
-                                            class="text-uppercase text-decoration-none fw-bold"
+                                            class="text-uppercase text-decoration-none fw-bold py-2"
                                             :class="{
                                               'text-decoration-underline c-yawhite c-h-yawhite': $root.itemIndx == indx && $root.settings.blueMode == 'full', 
                                               'c-yawhite c-h-yawhite': $root.itemIndx != indx && $root.settings.blueMode == 'full', 
