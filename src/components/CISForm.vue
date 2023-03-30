@@ -9,18 +9,18 @@
                         >
                         <div class="row mb-3">
                             <div 
-                                class="col-md-6 h3 fw-normal"
+                                class="col-md-6 h4 fw-normal"
                                 :class="{'c-yawhite': $root.settings.blueMode == 'full', 'c-yalightblack': $root.settings.blueMode == 'semi'}"
                                 >Найти автомобиль</div>
                             <div class="col-md-6 text-md-end">
-                                <ul class="list-inline text-minus pt-0 pt-md-2">
+                                <ul class="list-inline text-minus-minus pt-0 pt-md-2">
                                     <li 
                                         class="list-inline-item ms-md-3 me-3 me-md-0"
                                         v-for="(item, indx) in $root.settings.items"
                                         :key="indx">
                                         <a 
                                             href="#" 
-                                            class="text-uppercase text-decoration-none letter-spacing-plus fw-normal"
+                                            class="text-uppercase text-decoration-none fw-normal"
                                             :class="{
                                               'text-decoration-underline c-yawhite c-h-yawhite': $root.itemIndx == indx && $root.settings.blueMode == 'full', 
                                               'c-yawhite c-h-yawhite': $root.itemIndx != indx && $root.settings.blueMode == 'full', 
@@ -35,7 +35,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6 col-xl-3 mb-3">
+                            <div class="col-6 col-xl-3 mb-3">
                                 <multiselect 
                                     v-model="brandValue" 
                                     tag-placeholder="Выбрать бренд" 
@@ -54,7 +54,7 @@
                                     <template slot="selection" slot-scope="{ values, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">{{ values.length }} выбрано</span></template>
                                     </multiselect>
                             </div>
-                            <div class="col-md-6 col-xl-3 mb-3">
+                            <div class="col-6 col-xl-3 mb-3">
                                 <multiselect 
                                     v-model="modelValue" 
                                     tag-placeholder="Выбрать модель" 
@@ -369,6 +369,9 @@ export default {
 </script>
 
 <style>
+#CISMAinBlock {
+  font-size: 14px;
+}
 #CISMAinBlock .blue-mode-full {
     background-color: var(--yablue);
 }
@@ -839,5 +842,25 @@ fieldset[disabled] .multiselect {
   to {
     transform: rotate(2turn);
   }
+}
+@media (max-width: 991.98px) {
+  #CISMAinBlock .blue-mode-semi::before {
+    content: '';
+    position: absolute;
+    background-color: var(--yablue);
+    width: 100%;
+    height: 78%;
+    top: 0;
+    z-index: -1;
+}
+#CISMAinBlock .blue-mode-semi::after {
+    content: '';
+    position: absolute;
+    background-color: var(--yalightgray);
+    width: 100%;
+    height: 22%;
+    bottom: 14px;
+    z-index: -1;
+}
 }
 </style>
