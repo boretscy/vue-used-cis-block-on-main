@@ -27,7 +27,7 @@
                     class="text-decoration-none c-yadarkgray c-h-yadarkgray d-block b-radius-small py-1 ps-3 d-flex align-items-center justify-content-between"
                     >
                     {{ brands[n-1].name }}
-                    <span class="b-radius-yaradius-3 bg-yalightgray c-yalightblack bg-h-yalightgray text-end">{{ brands[n-1].vehicles }}</span>
+                    <span class="b-radius-yaradius-3 bg-yalightgray c-yalightblack bg-h-yalightgray text-center fw-bold">{{ brands[n-1].vehicles }}</span>
                 </a>
             </div>
         </div>
