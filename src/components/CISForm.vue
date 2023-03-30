@@ -859,7 +859,7 @@ fieldset[disabled] .multiselect {
     background-color: var(--yalightgray);
     width: 100%;
     height: 22%;
-    bottom: 14px;
+    bottom: 0;
     z-index: -1;
 }
 }
