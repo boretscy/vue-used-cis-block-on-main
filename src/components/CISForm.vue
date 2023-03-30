@@ -153,7 +153,10 @@ export default {
     },
     computed: {
         
-        brandOptions() {return this.$root.brands},
+        brandOptions() {
+          let s = [...this.$root.brands]
+          return s.sort((a, b) => a.code < b.code ? 1 : -1)
+        },
         modelOptions() {return this.$root.models},
 
         minVal: {
