@@ -13,7 +13,7 @@
                                 :class="{'c-yawhite': $root.settings.blueMode == 'full', 'c-yalightblack': $root.settings.blueMode == 'semi'}"
                                 >Найти автомобиль</div>
                             <div class="col-md-6 text-md-end">
-                                <ul class="list-inline text-minus-minus pt-0 pt-md-2">
+                                <ul class="list-inline text-minus-minus pt-0 pt-md-2 mb-0">
                                     <li 
                                         class="list-inline-item ms-md-3 me-3 me-md-0"
                                         v-for="(item, indx) in $root.settings.items"
@@ -106,7 +106,7 @@
                                     style="height: 45px;"
                                     v-else></div>
                             </div>
-                            <div class="col-md-6 col-xl-3 mb-3">
+                            <div class="col-md-6 col-xl-3">
                                 <a 
                                     :href="buttonLink" 
                                     class="d-block text-center c-yalightblack c-h-yalightblack bg-h-yayellow bg-yadarkyellow text-decoration-none b-radius-yaradius-15 but-lg fw-bold"
