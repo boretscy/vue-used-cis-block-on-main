@@ -20,7 +20,7 @@
                                         :key="indx">
                                         <a 
                                             href="#" 
-                                            class="text-uppercase text-decoration-none fw-normal"
+                                            class="text-uppercase text-decoration-none fw-bold"
                                             :class="{
                                               'text-decoration-underline c-yawhite c-h-yawhite': $root.itemIndx == indx && $root.settings.blueMode == 'full', 
                                               'c-yawhite c-h-yawhite': $root.itemIndx != indx && $root.settings.blueMode == 'full', 
