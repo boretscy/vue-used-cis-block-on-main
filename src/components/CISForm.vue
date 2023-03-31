@@ -386,7 +386,7 @@ export default {
     position: absolute;
     background-color: var(--yablue);
     width: 100%;
-    height: 47%;
+    height: 120px;
     top: 0;
     z-index: -1;
 }
