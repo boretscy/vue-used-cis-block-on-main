@@ -429,9 +429,9 @@ fieldset[disabled] .multiselect {
 }
 #CISMAinBlock .input-range span {
     position: absolute;
-    color: var(--yagray);
+    color: var(--yadarkgray);
     top: -8px;
-    font-size: 12px;
+    font-size: 10px;
 }
 #CISMAinBlock .input-range span.name {
     left: 5px;
@@ -504,7 +504,7 @@ fieldset[disabled] .multiselect {
   width: 100%;
   height: 40px;
   text-align: left;
-  color: var(--yablack);
+  color: var(--yadarkgray);
 }
 #CISMAinBlock .multiselect * {
   box-sizing: border-box;
@@ -672,7 +672,7 @@ fieldset[disabled] .multiselect {
   content: "";
 }
 #CISMAinBlock .multiselect__placeholder {
-  color: var(--yablack);
+  color: var(--yalightblack);
   display: inline-block;
   margin-bottom: 10px;
   padding-top: 2px;
