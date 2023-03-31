@@ -393,7 +393,8 @@ export default {
 #CISMAinBlock .cis-filter-on-main-range-slider {
     position: absolute;
 	bottom: -25px;
-    width: 100%;
+    width: 94%;
+    left: 3%;
     height: 35px;
     text-align: center;
 }
