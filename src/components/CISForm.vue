@@ -410,7 +410,7 @@ fieldset[disabled] .multiselect {
     outline: none;
 }
 #CISMAinBlock .input-range:first-child input {
-    margin-left: 10px;
+    margin-left: 5px;
     text-align: left;
     position: relative;
 }
@@ -434,10 +434,12 @@ fieldset[disabled] .multiselect {
     font-size: 10px;
 }
 #CISMAinBlock .input-range span.name {
-    left: 5px;
+    left: 15px;
+    top: -5px;
 }
 #CISMAinBlock .input-range span.rubble {
     right: 5px;
+    top: -5px
 }
 
 #CISMAinBlock .disabled {
