@@ -111,7 +111,7 @@
                                     :href="buttonLink" 
                                     class="d-block text-center c-yalightblack c-h-yalightblack bg-h-yayellow bg-yadarkyellow text-decoration-none b-radius-yaradius-15 but-lg fw-bold"
                                     :class="{'disabled': !activeButton}"
-                                    style="padding: 10px;"
+                                    style="padding: 12px;"
                                     >{{ (activeButton) ? 'Показать '+String(totalCount).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')+' авто' : defaultButtonText }}</a>
                             </div>
                         </div>
