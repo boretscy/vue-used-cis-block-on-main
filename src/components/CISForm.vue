@@ -185,7 +185,7 @@ export default {
             
             if ( newValue.length ) {
 
-                let url = this.$root.apiUrl + 'models'+ '/' + this.$root.settings.items[this.$root.itemIndx].code + '/'
+                let url = this.$root.apiUrl + 'models'+ '/used/'
                 let get = this.builGetParams()
                 get.push('token='+this.$root.token)
                 if ( this.$root.city ) get.push('city='+this.$root.city)
@@ -234,8 +234,8 @@ export default {
             let get = []
             let params = []
 
-            if ( this.brandValue.length == 1 ) link += this.brandValue[0].code
-            if ( this.brandValue.length == 1 && this.modelValue.length == 1 ) link += '/'+this.modelValue[0].code
+            if ( this.brandValue.length == 1 ) link += this.brandValue[0].code + '/'
+            if ( this.brandValue.length == 1 && this.modelValue.length == 1 ) link += this.modelValue[0].code + '/'
 
             params = []
             if ( this.brandValue.length > 1 ) {
@@ -256,13 +256,13 @@ export default {
                get.push('price='+this.$root.price.value.join(','))
             }
 
-            if ( this.$root.settings.items[this.$root.itemIndx].params ) {
-                for ( let i in this.$root.settings.items[this.$root.itemIndx].params ) {
-                    get.push(i+'='+this.$root.settings.items[this.$root.itemIndx].params[i])
-                }
-            }
+            // if ( this.$root.settings.items[this.$root.itemIndx].params ) {
+            //     for ( let i in this.$root.settings.items[this.$root.itemIndx].params ) {
+            //         get.push(i+'='+this.$root.settings.items[this.$root.itemIndx].params[i])
+            //     }
+            // }
 
-            if ( this.$root.city ) get.push('city='+this.$root.city)
+            // if ( this.$root.city ) get.push('city='+this.$root.city)
 
             if ( get.length ) {
                 link += '?'+get.join('&')
