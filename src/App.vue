@@ -39,7 +39,7 @@ export default {
     methods: {
         getBrands() {
 
-            let url = this.$root.apiUrl + 'brands'+ '/' + this.$root.settings.items[this.$root.itemIndx].code + '/'
+            let url = this.$root.apiUrl + 'brands'+ '/used/'
             let get = []
             get.push('token='+this.$root.token)
             for ( let i in this.$root.settings.items[this.$root.itemIndx].params ) get.push(i+'='+this.$root.settings.items[this.$root.itemIndx].params[i])
