@@ -56,7 +56,7 @@ export default {
             //         get.push(i+'='+this.$root.settings.items[this.$root.itemIndx].params[i])
             //     }
             // }
-            // if ( this.$root.city ) get.push('city='+this.$root.city)
+            if ( this.$root.city ) get.push('city='+this.$root.city)
             if ( get.length ) {
                 res += '?'+get.join('&')
             }

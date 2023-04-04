@@ -267,9 +267,7 @@ export default {
             if ( get.length ) {
                 link += '?'+get.join('&')
             }
-
-            console.log(link)
-
+            
             return link
         },
 

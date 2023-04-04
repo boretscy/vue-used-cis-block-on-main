@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import VueCookies from 'vue-cookies'
 import App from '@/App.vue'
 
 Vue.config.productionTip = false
 
 Vue.use(VueAxios, axios)
+Vue.use(VueCookies, { expires: '7d'})
 
 new Vue({
     render: h => h(App),
@@ -23,7 +25,7 @@ new Vue({
                 range: [0,99999999]
             },
             
-            city: localStorage.getItem('YAPP_SELECTED_CITY') || null,
+            city: this.$cookies.get('SELECTED_CITY') || null,
             inCity: null,
 
             settings: JSON.parse(document.getElementById('CISMAinBlock').getAttribute('data')) || null,

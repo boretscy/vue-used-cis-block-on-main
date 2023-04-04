@@ -20,6 +20,8 @@ import CISBrandsEmpty from './components/CISBrandsEmpty.vue'
 import CISBodies from './components/CISBodies.vue'
 import CISBodiesEmpty from './components/CISBodiesEmpty.vue'
 
+
+import _ from 'lodash'
 export default {
     name: 'App',
     components: {
@@ -30,8 +32,8 @@ export default {
     mounted: function() {
         this.getBrands()
         setInterval(() => {
-            if ( localStorage.getItem('YAPP_SELECTED_CITY') != this.$root.city ) {
-                this.$root.city = localStorage.getItem('YAPP_SELECTED_CITY')
+            if ( !_.isEqual(this.$cookies.get('SELECTED_CITY'), this.$root.city) ) {
+                this.$root.city = [...this.$cookies.get('SELECTED_CITY')]
                 this.getBrands()
             }
         }, 100);
@@ -43,7 +45,11 @@ export default {
             let get = []
             get.push('token='+this.$root.token)
             for ( let i in this.$root.settings.items[this.$root.itemIndx].params ) get.push(i+'='+this.$root.settings.items[this.$root.itemIndx].params[i])
-            if ( this.$root.city ) get.push('city='+this.$root.city)
+            let s = []
+            this.$root.city.forEach( (item) => {
+                s.push(this.getCityName(item))
+            })
+            get.push('city='+s.toString())
             url += '?' + get.join('&')
 
             this.axios.get(url).then((response) => {
@@ -55,6 +61,14 @@ export default {
             }).then(() => {
                 this.$refs.CISForm.init()
             })
+        },
+        getCityName( q ) {
+            switch ( q ) {
+                case 'maykop': return 'Майкоп';
+                case 'novorossiysk': return 'Новороссийск';
+                case 'krasnodar': return 'Краснодар';
+                case 'yablonovskiy': return 'Яблоновский';
+            }
         }
     }
 }
