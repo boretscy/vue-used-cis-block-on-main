@@ -17,6 +17,7 @@
                                     <li 
                                         class="list-inline-item ms-md-3 me-3 me-md-0 py-3"
                                         v-for="(item, indx) in $root.settings.items"
+                                        v-if="indx == 0 || ($root.city.length != 1 && $root.city != 'Новороссийск')"
                                         :key="indx">
                                         <a 
                                             href="#" 
@@ -256,11 +257,11 @@ export default {
                get.push('price='+this.$root.price.value.join(','))
             }
 
-            // if ( this.$root.settings.items[this.$root.itemIndx].params ) {
-            //     for ( let i in this.$root.settings.items[this.$root.itemIndx].params ) {
-            //         get.push(i+'='+this.$root.settings.items[this.$root.itemIndx].params[i])
-            //     }
-            // }
+            if ( this.$root.settings.items[this.$root.itemIndx].params ) {
+                for ( let i in this.$root.settings.items[this.$root.itemIndx].params ) {
+                    get.push(i+'='+this.$root.settings.items[this.$root.itemIndx].params[i])
+                }
+            }
 
             // if ( this.$root.city ) get.push('city='+this.$root.city)
 
