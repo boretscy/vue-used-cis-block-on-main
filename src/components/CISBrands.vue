@@ -2,7 +2,7 @@
     <div class="container my-5 d-none d-lg-block">
         <div class="row mt-5 mb-3 cis-filter-on-main-brands">
             <div class="col-md-9">
-                <h1 class="h3 fw-normal">Автомобили в наличии <a :href="'/dealerships/?city='+$root.city" v-if="$root.inCity" role="top-menu-show-list-city">в {{ $root.inCity }}</a></h1>
+                <h1 class="h3 fw-normal">Автомобили в наличии <a :href="'/dealerships/?city='+linkCity" v-if="$root.inCity" role="top-menu-show-list-city">в {{ $root.inCity }}</a></h1>
             </div>
             <div class="col-md-3 text-start text-md-end">
                 <a 
@@ -44,6 +44,18 @@ export default {
             let res = 18
             if ( this.$root.brands.length < res ) res = this.$root.brands.length
             return res
+        },
+        linkCity() {
+            let s = []
+            this.$root.city.forEach( (e) => {
+                switch (e) {
+                    case 'krasnodar': s.push('Краснодар'); break;
+                    case 'maykop':  s.push('Майкоп'); break;
+                    case 'novorossiysk':  s.push('Новороссийск'); break;
+                    case 'yablonovskiy':  s.push('Яблоновский'); break;
+                }
+            })
+            return s.join(',')
         }
     },
     methods: {
