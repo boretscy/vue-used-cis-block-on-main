@@ -688,6 +688,7 @@ fieldset[disabled] .multiselect {
   width: 100%;
   max-height: 240px;
   overflow: auto;
+  border: none;
   border-top: none;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
