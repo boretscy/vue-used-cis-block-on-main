@@ -524,8 +524,8 @@ fieldset[disabled] .multiselect {
 #CISMAinBlock .multiselect--active:not(.multiselect--above) .multiselect__current,
 #CISMAinBlock .multiselect--active:not(.multiselect--above) .multiselect__input,
 #CISMAinBlock .multiselect--active:not(.multiselect--above) .multiselect__tags {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
 }
 
 #CISMAinBlock .multiselect--active {
