@@ -28,6 +28,8 @@ new Vue({
             city: this.$cookies.get('SELECTED_CITY') || null,
             inCity: null,
 
+            activeButton: true,
+
             settings: JSON.parse(document.getElementById('CISMAinBlock').getAttribute('data')) || null,
             itemIndx: 0
         }

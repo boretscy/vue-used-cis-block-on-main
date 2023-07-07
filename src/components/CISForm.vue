@@ -148,8 +148,7 @@ export default {
             modelValue: [
             ],
 
-            activeButton: true,
-            defaultButtonText: 'Ожидайте'
+            defaultButtonText: '• • •'
         }
     },
     computed: {
@@ -159,6 +158,8 @@ export default {
           return s.sort((a, b) => a.code > b.code ? 1 : -1)
         },
         modelOptions() {return this.$root.models},
+
+        activeButton() {return this.$root.activeButton},
 
         minVal: {
             get() {
@@ -329,7 +330,7 @@ export default {
 
         rangeEnd() {
 
-            // this.activeButton = false
+            this.$root.activeButton = false;
             if ( Number(this.minVal.replace(/[^\d;]/g, '')) < this.$root.price.range[0] ) this.$set(this.$root.price.value, 0, this.$root.price.range[0])
             if ( Number(this.maxVal.replace(/[^\d;]/g, '')) > this.$root.price.range[1] ) this.$set(this.$root.price.value, 1, this.$root.price.range[1])
 
@@ -343,6 +344,7 @@ export default {
                 this.totalCount = response.data.totalCount
             }).then( () => {
                 this.buttonLink = this.buildLink()
+                this.$root.activeButton = true;
             })
             this.minVal
         },

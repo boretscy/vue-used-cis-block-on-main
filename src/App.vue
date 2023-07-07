@@ -41,6 +41,8 @@ export default {
     methods: {
         getBrands() {
 
+            this.$root.activeButton = false;
+
             let url = this.$root.apiUrl + 'brands'+ '/used/'
             let get = []
             get.push('token='+this.$root.token)
@@ -60,6 +62,7 @@ export default {
                 this.$root.inCity = response.data.in_city
             }).then(() => {
                 this.$refs.CISForm.init()
+                this.$root.activeButton = true;
             })
         },
         getCityName( q ) {
